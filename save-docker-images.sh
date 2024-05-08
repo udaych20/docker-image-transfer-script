@@ -10,7 +10,7 @@ if [ ! -f "$CONFIG_FILE" ]; then
 fi
 
 # Pull images listed in the config file
-while IFS='=' read -r repository tag; do
+while IFS='=' read -r repository tag || [ -n "$repository" ]; do
     # Remove leading and trailing whitespace
     repository=$(echo "$repository" | tr -d '[:space:]')
     tag=$(echo "$tag" | tr -d '[:space:]')
